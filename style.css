@@ -1,0 +1,7 @@
+li:focus {
+    background-color: lightgreen;
+}
+
+.removeSymbol:hover {
+    cursor: pointer;
+}

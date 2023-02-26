@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h3>To-do List</h3>
+
+
+    <input id="todo" type="text" placeholder="To-do">
+    <input id="description" type="text" placeholder="Description">
+    <input style="margin-top: 6px" id="add-btn" type="button" value="Add">
+
+
+    <div id="container">
+        <ul id="todo-list">
+
+        </ul>
+    </div>
+
+
+    <h3>Get By ID</h3>
+    <input id="id-input" type="text" placeholder="Todo ID">
+    <input id="search-button" style="margin-top: 6px" type="button" value="Search">
+    <h2 id="id-todo"></h2>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
