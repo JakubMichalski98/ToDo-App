@@ -16,9 +16,13 @@ searchBtn.addEventListener("click", getTodo);
 
 function getData()
 {
-    fetch("https://localhost:7124/api/Todos")
+
+    var url = "https://localhost:7124/api/Todos";
+
+    fetch(url)
     .then((res) => res.json())
     .then(displayData);
+
 }
 function displayData(data)
 {
@@ -26,8 +30,10 @@ function displayData(data)
 
     data.forEach((d) => {
         let element = `<li class="todo-item">${d.todo}`;
-        const removeSymbol = `<span onClick="removeTodo(event.target.id)" id="${d.id}" class="removeSymbol"> X</span></li>`;
+        const removeSymbol = `<span onClick="removeTodo(event.target.id)" id="${d.id}" class="removeSymbol"> [X]</span></li>`;
+        const editText = `<span onClick = "editTodo(event.target.id)" id="${d.id}" class="editText"> [edit] </span>`
 
+        element += editText;
         element += removeSymbol;
 
         list.innerHTML += element;
@@ -66,9 +72,15 @@ function addNewTodo(e)
     .catch((err) => console.log(err));
 }
 
+function editTodo(targetId)
+{
+    fetch(`https://localhost:7124/api/Todos/${targetId}`, {
+    method: "PUT",
+    })
+}
+
 function removeTodo(targetId)
 {
-    console.log("Click");
     fetch(`https://localhost:7124/api/Todos/${targetId}`, {
     method: "DELETE",
   })
